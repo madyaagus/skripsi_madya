@@ -1,267 +1,102 @@
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+<title>Beranda</title>
 
 @extends('layouts.master')
 @section('content')
     <div class="page-wrapper">
         <div class="content container-fluid">
+            <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-1.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-2.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-3.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-4.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-5.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-6.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{ URL::to('assets/img/carousel/carousel-7.jpg') }}" class="d-block w-100" style="max-height: 500px; width: auto;" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+              
+            <br>
+            <br>
+{{-- 
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Welcome Admin!</h3>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ul>
+                        <h3 class="page-title">Papan Kontrol</h3>
+                        <br>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Semua Perkara</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Sudah Inkrah</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Belum Inkrah</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+                            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+                          </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body">
-                            <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>112</h3>
-                                <span>Projects</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body">
-                            <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>44</h3>
-                                <span>Clients</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body">
-                            <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>37</h3>
-                                <span>Tasks</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body">
-                            <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>218</h3>
-                                <span>Employees</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-group m-b-30">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div>
-                                        <span class="d-block">New Employees</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-success">+10%</span>
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">10</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;"
-                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Overall Employees 218</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div>
-                                        <span class="d-block">Earnings</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-success">+12.5%</span>
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">$1,42,300</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,15,852</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div>
-                                        <span class="d-block">Expenses</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-danger">-2.8%</span>
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">$8,500</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$7,500</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div>
-                                        <span class="d-block">Profit</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-danger">-75%</span>
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">$1,12,000</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,42,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
-                    <div class="card flex-fill dash-statistics">
-                        <div class="card-body">
-                            <h5 class="card-title">Statistics</h5>
-                            <div class="stats-list">
-                                <div class="stats-info">
-                                    <p>Today Leave <strong>4 <small>/ 65</small></strong></p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar"style="width: 31%" aria-valuenow="31" aria-valuemin="0"aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="stats-info">
-                                    <p>Pending Invoice <strong>15 <small>/ 92</small></strong></p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 31%" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="stats-info">
-                                    <p>Completed Projects <strong>85 <small>/ 112</small></strong></p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 62%" aria-valuenow="62" aria-valuemin="0"aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="stats-info">
-                                    <p>Open Tickets <strong>190 <small>/ 212</small></strong></p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 62%" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="stats-info">
-                                    <p>Closed Tickets <strong>22 <small>/ 212</small></strong></p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
-                    <div class="card flex-fill">
-                        <div class="card-body">
-                            <h4 class="card-title">Task Statistics</h4>
-                            <div class="statistics">
-                                <div class="row">
-                                    <div class="col-md-6 col-6 text-center">
-                                        <div class="stats-box mb-4">
-                                            <p>Total Tasks</p>
-                                            <h3>385</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-6 text-center">
-                                        <div class="stats-box mb-4">
-                                            <p>Overdue Tasks</p>
-                                            <h3>19</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar bg-purple" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 22%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">22%</div>
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">24%</div>
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 26%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">21%</div>
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">10%</div>
-                            </div>
-                            <div>
-                                <p><i class="fa fa-dot-circle-o text-purple mr-2"></i>Completed Tasks <span class="float-right">166</span></p>
-                                <p><i class="fa fa-dot-circle-o text-warning mr-2"></i>Inprogress Tasks <span class="float-right">115</span></p>
-                                <p><i class="fa fa-dot-circle-o text-success mr-2"></i>On Hold Tasks <span class="float-right">31</span></p>
-                                <p><i class="fa fa-dot-circle-o text-danger mr-2"></i>Pending Tasks <span class="float-right">47</span></p>
-                                <p class="mb-0"><i class="fa fa-dot-circle-o text-info mr-2"></i>Review Tasks <span class="float-right">5</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
-                    <div class="card flex-fill">
-                        <div class="card-body">
-                            <h4 class="card-title">Today Absent <span class="badge bg-inverse-danger ml-2">5</span></h4>
-                            <div class="leave-info-box">
-                                <div class="media align-items-center">
-                                    <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
-                                    <div class="media-body">
-                                        <div class="text-sm my-0">Martin Lewis</div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mt-3">
-                                    <div class="col-6">
-                                        <h6 class="mb-0">4 Sep 2019</h6>
-                                        <span class="text-sm text-muted">Leave Date</span>
-                                    </div>
-                                    <div class="col-6 text-right">
-                                        <span class="badge bg-inverse-danger">Pending</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="leave-info-box">
-                                <div class="media align-items-center">
-                                    <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
-                                    <div class="media-body">
-                                        <div class="text-sm my-0">Martin Lewis</div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mt-3">
-                                    <div class="col-6">
-                                        <h6 class="mb-0">4 Sep 2019</h6>
-                                        <span class="text-sm text-muted">Leave Date</span>
-                                    </div>
-                                    <div class="col-6 text-right">
-                                        <span class="badge bg-inverse-success">Approved</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="load-more text-center">
-                                <a class="text-dark" href="javascript:void(0);">Load More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{-- Map --}}
+            <div id="map" style="height: 400px;"></div>
         </div>
     </div>
+
+    <script src="{{ URL::to('front/js/bootstrap.min.js') }}"></script>
+   
+    <script>
+
+        // Ganti dengan koordinat yang diinginkan
+        var latitude = -0.66345;
+        var longitude = 100.94108;
+
+        var map = L.map('map').setView([latitude, longitude], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Buat marker dengan bindPopup yang berisi tautan Google Maps
+        var marker = L.marker([latitude, longitude]).addTo(map);
+        marker.bindPopup('<a href="https://www.google.com/maps/place/District+Attorney+Office+of+Sijunjung/@-0.6636521,100.9384642,17z/data=!4m16!1m9!3m8!1s0x2e2b2180cae23113:0xc500e464e6997b1!2sDistrict+Attorney+Office+of+Sijunjung!8m2!3d-0.6636575!4d100.9410391!9m1!1b1!16s%2Fg%2F11fylsy3dd!3m5!1s0x2e2b2180cae23113:0xc500e464e6997b1!8m2!3d-0.6636575!4d100.9410391!16s%2Fg%2F11fylsy3dd?entry=ttu' + latitude + ',' + longitude + '" target="_blank">Kantor Kejaksaan Negeri Sijunjung</a>');
+
+        // Buka popup saat peta dimuat
+        marker.openPopup();
+    </script>
+
 @endsection
